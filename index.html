@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <title>Amazing Coin Flipper</title>
+        <style>
+            body {
+                background-color: rgb(127, 197, 209);
+              }
+            h1 {
+          text-align: center;
+          color: rgb(243, 10, 10);
+           }
+            h2 {
+          text-align: center;
+          color: maroon;
+            }
+            
+        #result{
+          
+          font-size: 40px;
+          text-align: center;
+          color: rgb(208, 230, 10);
+        }
+        #coin {
+          margin-bottom:100px; 
+        }
+        img {
+          max-width:100%;
+        }
+        #tailsCounter span, #headsCounter span {
+          color:#f300e7;
+        } 
+        #result {
+          color:#ff00ff;
+        }
+        #button {
+          background:#df0950;
+          color:#111;
+          padding:10px 20px;
+          border-radius:2px;
+            font-size: 23px;
+            text-align: center;
+          margin-bottom: 30px;
+         
+        }
+        .animate-coin {
+  animation: flip 1.4s 1;
+}
+@keyframes flip {
+  0% {
+    transform: scale3d(1,1,1) rotateX(0deg);
+  }
+  50% {
+    transform: scale3d(2,2,2) rotateX(3600deg);
+  }
+  100% {
+    transform: scale3d(1,1,1) rotateX(7200deg);
+  }
+}
+.container {
+  width:80%;
+  margin:200px auto;
+  text-align:Center;
+}
+img {
+  max-width:100%;
+}
+#tailsCounter span, #headsCounter span {
+  color:#6ab344;
+} 
+#result {
+  color:#6ab344;
+}
+
+           
+              </style>
+    </head>
+<body>
+   
+    <table align ="center">
+        <h1>AmaZing Coin Flipper </h1><br>
+	<h2>Come Check How lucky You Are </h2><br>
+        <br><tr>
+        <td align ="center"><button id="button" type="button">CLICK ME</button></td>
+        </tr><br><br><br>
+        <tr>
+            <td><h2>
+            Result: -  <span id="result"></span>
+        </h2></td>
+        </tr>
+        
+          <div id='coin'></div>
+      </div>
+      <div id='tailsCounter'></div><div id='headsCounter'></div>
+        <img id="featureCoin" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png">
+    </table>
+
+<script type = "text/javascript">
+    var coin = document.getElementById('coin');
+    var button = document.getElementById('button');
+    var result = document.getElementById('result');
+    var headsCounter = document.getElementById('headsCounter');
+    var TailsCounter = document.getElementById('TailsCounter'); 
+    var featureCoin = document.getElementById('featureCoin');
+    var heads = 0;
+    var tails = 0;
+function coinToss() {
+  var x = Math.floor(Math.random() * 2);
+  if (x === 0) {
+    coin.innerHTML = '<img class="heads animate-coin" src="https://upload.wikimedia.org/wikipedia/en/5/52/British_fifty_pence_coin_2015_obverse.png"/>';
+    heads += 1;
+    result.innerHTML = '<h2>You got heads</h2>';
+    headsCounter.innerHTML = '<h3> Number of heads:<span> ' + heads + '</span></h3>';
+  } else {
+    coin.innerHTML = '<img class="tails animate-coin" src="https://upload.wikimedia.org/wikipedia/en/d/d8/British_fifty_pence_coin_2015_reverse.png"/>';
+    tails += 1;
+    result.innerHTML = '<h2>You got tails</h2>';
+    tailsCounter.innerHTML = '<h3> Number of tails:<span> ' + tails + '</span></h3>';
+
+  }
+
+}
+button.onclick = function() {
+  coinToss();
+  featureCoin.remove();
+}
+</script>
+
+</body>
+</html>
